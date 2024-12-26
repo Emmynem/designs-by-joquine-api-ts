@@ -146,12 +146,12 @@ export default class ApplicationController {
 						subject: payload.subject,
 						text: payload.text,
 						html: payload.html,
-						// attachments: [
-						// 	{
-						// 		filename: payload.proof_name + "." + getFileExtension(payload.proof_link),
-						// 		path: payload.proof_link
-						// 	}
-						// ]
+						attachments: [
+							{
+								filename: payload.proof_name + "." + getFileExtension(payload.proof_link),
+								path: payload.proof_link
+							}
+						]
 					} :
 						{
 							host_type: host_type,
@@ -164,12 +164,12 @@ export default class ApplicationController {
 							subject: payload.subject,
 							text: payload.text,
 							html: payload.html,
-							// attachments: [
-							// 	{
-							// 		filename: payload.proof_name + "." + getFileExtension(payload.proof_link),
-							// 		path: payload.proof_link
-							// 	}
-							// ]
+							attachments: [
+								{
+									filename: payload.proof_name + "." + getFileExtension(payload.proof_link),
+									path: payload.proof_link
+								}
+							]
 						},
 					{
 						headers: {
