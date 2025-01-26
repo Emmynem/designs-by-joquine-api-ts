@@ -2,8 +2,8 @@ import express, { Application } from "express";
 import cors, { CorsOptions } from "cors";
 import helmet from "helmet";
 import rateLimit from 'express-rate-limit';
-import morganMiddleware from "./middleware/morgan.js";
-import { dbj_header_key, primary_domain } from './config/config.js';
+import morganMiddleware from "./middleware/morgan";
+import { dbj_header_key, primary_domain } from './config/config';
 import Routes from "./routes";
 import Database from "./models";
 
