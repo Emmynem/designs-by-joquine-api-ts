@@ -8,7 +8,10 @@ const logger = winston.createLogger({
 		timestamp({
 			format: 'YYYY-MM-DD hh:mm:ss.SSS A',
 		}),
-		printf((info) => `[${info.timestamp}]${!info.message.unique_id ? '' : ' - [' + info.message.unique_id + '] -'} ${info.level}: ${info.message.text ? info.message.text : info.message}`)
+		printf((info) => {
+			const message = info.message as { unique_id?: string; text?: string };
+			return `[${info.timestamp}]${!message.unique_id ? '' : ' - [' + message.unique_id + '] -'} ${info.level}: ${message.text ? message.text : info.message}`;
+		})
 	),
 	transports: [
 		new winston.transports.File({
