@@ -1,7 +1,7 @@
 import { Request, Response, NextFunction } from "express";
 // import dotenv from 'dotenv';
-import { UnauthorizedError, ForbiddenError } from '../common/index.js';
-import { default_delete_status, dbj_header_key, tag_root, api_keys } from "../config/config.js";
+import { UnauthorizedError, ForbiddenError } from '../common/index';
+import { default_delete_status, dbj_header_key, tag_root, api_keys } from "../config/config";
 
 // dotenv.config();
 
