@@ -10,7 +10,7 @@ export const ApplicationRules = {
 		check('unique_id', "Unique Id is required")
 			.exists({ checkNull: true, checkFalsy: true })
 			.bail()
-			.custom(async (unique_id: string, { req: Request }) => {
+			.custom(async (unique_id: string, { req }) => {
 				const data = await APPLICATION.findOne({ where: { unique_id: unique_id } });
 				if (!data) return Promise.reject('Application not found!');
 			})
@@ -19,7 +19,7 @@ export const ApplicationRules = {
 		check('unique_id', "Unique Id is required")
 			.exists({ checkNull: true, checkFalsy: true })
 			.bail()
-			.custom(async (unique_id: string, { req: Request }) => {
+			.custom(async (unique_id: string, { req }) => {
 				const data = await APPLICATION.findOne({ where: { unique_id: unique_id, status: default_status } });
 				if (!data) return Promise.reject('Application not found!');
 			})
@@ -28,7 +28,7 @@ export const ApplicationRules = {
 		check('unique_id', "Unique Id is required")
 			.exists({ checkNull: true, checkFalsy: true })
 			.bail()
-			.custom(async (unique_id: string, { req: Request }) => {
+			.custom(async (unique_id: string, { req }) => {
 				const data = await APPLICATION.findOne({ where: { unique_id: unique_id, status: default_delete_status } });
 				if (!data) return Promise.reject('Application not found!');
 			})
@@ -37,7 +37,7 @@ export const ApplicationRules = {
 		check('application_unique_id', "Application Unique Id is required")
 			.exists({ checkNull: true, checkFalsy: true })
 			.bail()
-			.custom(async (application_unique_id: string, { req: Request }) => {
+			.custom(async (application_unique_id: string, { req }) => {
 				const data = await APPLICATION.findOne({ where: { unique_id: application_unique_id, status: default_status } });
 				if (!data) return Promise.reject('Application not found!');
 			})
@@ -69,7 +69,7 @@ export const ApplicationRules = {
 			.isEmail()
 			.withMessage('Invalid email format'),
 			// .bail()
-			// .custom(async (email: string, { req: Request }) => {
+			// .custom(async (email: string, { req }) => {
 			// 	const data = await APPLICATION.findOne({ where: { email } });
 			// 	if (data) return Promise.reject('Email already exists!');
 			// }),
@@ -79,7 +79,7 @@ export const ApplicationRules = {
 			.isMobilePhone('any')
 			.withMessage('Invalid phone number'),
 			// .bail()
-			// .custom(async (phone_number: string, { req: Request }) => {
+			// .custom(async (phone_number: string, { req }) => {
 			// 	const data = await APPLICATION.findOne({ where: { phone_number } });
 			// 	if (data) return Promise.reject('Phone number already exists!');
 			// }),
