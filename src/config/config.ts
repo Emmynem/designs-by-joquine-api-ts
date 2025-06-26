@@ -2,7 +2,7 @@ import crypto from 'crypto';
 import { v4 as uuidv4 } from 'uuid';
 
 export const primary_domain: string = "https://designsbyjoquine.space";
-export const mailer_url: string = "https://api.mailer.xnyder.com";
+export const mailer_url: string = "https://mailerapi.xnyder.com";
 
 export const api_keys: Array<string> = [
 	"34303f21-8094-4e86-8e55-7cdd21b97fc3", // Used
